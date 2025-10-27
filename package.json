@@ -1,0 +1,30 @@
+{
+  "name": "lehl-pulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fantasy hockey league history tracker and analytics platform",
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=web",
+    "dev:api": "turbo run dev --filter=api",
+    "build": "turbo run build",
+    "build:web": "turbo run build --filter=web",
+    "build:api": "turbo run build --filter=api",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "db:generate": "turbo run db:generate --filter=database",
+    "db:push": "turbo run db:push --filter=database",
+    "db:studio": "turbo run db:studio --filter=database",
+    "backfill": "node scripts/backfill.js"
+  },
+  "devDependencies": {
+    "turbo": "^2.2.3",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.12.3"
+}
