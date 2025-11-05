@@ -13,12 +13,18 @@
     "lint": "turbo run lint",
     "type-check": "turbo run type-check",
     "clean": "turbo run clean && rm -rf node_modules",
-    "db:generate": "turbo run db:generate --filter=database",
-    "db:push": "turbo run db:push --filter=database",
-    "db:studio": "turbo run db:studio --filter=database",
-    "backfill": "node scripts/backfill.js"
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f postgres",
+    "docker:reset": "docker-compose down -v && docker-compose up -d",
+    "db:generate": "turbo run db:generate --filter=@lehl-pulse/database",
+    "db:push": "turbo run db:push --filter=@lehl-pulse/database",
+    "db:studio": "turbo run db:studio --filter=@lehl-pulse/database",
+    "db:reset": "pnpm docker:reset && sleep 5 && pnpm db:push",
+    "backfill": "tsx scripts/backfill.ts"
   },
   "devDependencies": {
+    "tsx": "^4.19.1",
     "turbo": "^2.2.3",
     "typescript": "^5.6.3"
   },
